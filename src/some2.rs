@@ -1,4 +1,4 @@
-#[derive(Copy, Clone, Debug)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Some2<A, B> {
     A(A),
     B(B),
@@ -14,14 +14,6 @@ impl<A, B> Some2<A, B> {
             (None, Some(b)) => Some(B(b)),
             (Some(a), Some(b)) => Some(AB(a, b)),
         }
-    }
-
-    pub fn from_a(a: A) -> Self {
-        A(a)
-    }
-
-    pub fn from_b(b: B) -> Self {
-        B(b)
     }
 
     pub fn as_ref(&self) -> Some2<&A, &B> {
