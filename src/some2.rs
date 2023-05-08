@@ -31,6 +31,16 @@ impl<A, B> Some2<A, B> {
             AB(a, b) => AB(a, b),
         }
     }
+
+    pub fn a(self) -> Option<A> {
+        let (opta, _) = self.into();
+        opta
+    }
+
+    pub fn b(self) -> Option<B> {
+        let (_, optb) = self.into();
+        optb
+    }
 }
 
 impl<A, B> TryFrom<(Option<A>, Option<B>)> for Some2<A, B> {
